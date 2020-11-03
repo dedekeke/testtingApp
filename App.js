@@ -18,6 +18,7 @@ export default class FlatListDemo extends React.Component {
   componentDidMount() {
     this.makeRemoteRequest();
   }
+  // fetch api
   makeRemoteRequest = () => {
     const { page, seed } = this.state;
     const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
@@ -39,7 +40,7 @@ export default class FlatListDemo extends React.Component {
         this.setState({ error, loading: false });
       });
   };
-
+// seperator
   zzzseperator =() => {
     return (
       <View
@@ -51,13 +52,14 @@ export default class FlatListDemo extends React.Component {
         }}
       />)
   }
+  // searchbar
   searchbar = () => {
     return <SearchBar
               placeholder="Don't type here"
               round/>
              
   }
-
+// footer
   chan =() => {
     if (!this.state.loading) return null;
 
@@ -93,6 +95,7 @@ export default class FlatListDemo extends React.Component {
             </ListItem.Content>
           </ListItem>
         )}
+        // declare of searchar , seperator and footer in flatlist tag
         ItemSeparatorComponent={this.zzzseperator}
         ListHeaderComponent={this.searchbar}
         ListFooterComponent={this.chan}
